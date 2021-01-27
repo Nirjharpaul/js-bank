@@ -47,16 +47,45 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="login">
+            <h2>Deposit</h2>
+            <input id="depositAmount" class="form-control" type="text" placeholder="Your Deposit Amonut" />
+            <br>
+            <button id="addDeposit" class="btn btn-success">Deposit</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="login">
+            <h2>Withdrow</h2>
+          <input class="form-control" type="text" placeholder="Your Withdraw Amount" />
+          <br>
+          <button  class="btn btn-success">Withdraw</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
+          //login button event handler
+
       const loginButton = document.getElementById("loginButton");
       loginButton.addEventListener("click", function () {
         const loginArea = document.getElementById("login-area");
         loginArea.style.display = "none";
         const transactionArea = document.getElementById("transaction-area");
         transactionArea.style.display = "block";
-      });
+      })
+
+        // deposit button event handler
+        const depositButton = document.getElementById('addDeposit')
+        depositButton.addEventListener('click', function(){
+          const depositAmount = document.getElementById('depositAmount').value;
+          const depositNumber = parseFloat(depositAmount);
+
+        })
+
     </script>
   </body>
 </html>
