@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="login-area">
+      <h1 class="text-center">Welcome to Js Bank</h1>
+      <div class="login">
+        <h2>Login</h2>
+        <input class="form-control" type="text" placeholder="Email" />
+        <br />
+        <input
+          class="form-control"
+          type="password"
+          name=""
+          id=""
+          placeholder="Password"
+        />
+        <br />
+        <button id="loginButton" class="btn btn-success">Enter</button>
+      </div>
+    </div>
+
+    <div id="transaction-area">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="deposit status">
+            <h5>Deposit</h5>
+            <h2>$00</h2>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="withdraw status">
+            <h5>Withdraw</h5>
+            <h2>$00</h2>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="balance status">
+            <h5>Balace</h5>
+            <h2>$1250</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const loginButton = document.getElementById("loginButton");
+      loginButton.addEventListener("click", function () {
+        const loginArea = document.getElementById("login-area");
+        loginArea.style.display = "none";
+        const transactionArea = document.getElementById("transaction-area");
+        transactionArea.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
