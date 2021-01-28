@@ -37,7 +37,7 @@
         <div class="col-md-4">
           <div class="withdraw status">
             <h5>Withdraw</h5>
-            <h2>$00</h2>
+            <h2>$ <span id="currentWithdraw">00</span></h2>
           </div>
         </div>
         <div class="col-md-4">
@@ -64,13 +64,13 @@
         <div class="col-md-6">
           <div class="login">
             <h2>Withdrow</h2>
-            <input
+            <input id="withdrawAmount"
               class="form-control"
               type="text"
               placeholder="Your Withdraw Amount"
             />
             <br />
-            <button class="btn btn-success">Withdraw</button>
+            <button id="addWithdraw" class="btn btn-success">Withdraw</button>
           </div>
         </div>
       </div>
@@ -91,8 +91,7 @@
 
         const depositButton = document.getElementById("addDeposit");
         depositButton.addEventListener("click", function () {
-        const depositAmount = document.getElementById("depositAmount").value;
-        const depositNumber = parseFloat(depositAmount);
+        const depositNumber = inputNumber ('depositAmount');
 
 
         updateSpanText("currentDeposit", depositNumber);
@@ -101,6 +100,26 @@
         document.getElementById("depositAmount").value = "";
       })
 
+      // withdrow button event handler
+        
+      const addWithdraw = document.getElementById('addWithdraw');
+        addWithdraw.addEventListener('click', function(){
+        const withdrawNumber = inputNumber ('withdrawAmount')  
+
+          updateSpanText("currentWithdraw", withdrawNumber)
+          updateSpanText("currentBalance", -1 * withdrawNumber)
+
+          document.getElementById("withdrawAmount").value = "";
+
+        })
+
+          function inputNumber(id){ 
+          const withdrawAmount = document.getElementById(id).value;
+          const withdrawNumber = parseFloat(withdrawAmount);
+          return withdrawNumber;
+
+        }
+
       function updateSpanText(id, depositNumber) {
 
         const current = document.getElementById(id).innerText;
@@ -108,6 +127,7 @@
         const totalAmount = depositNumber + currentNumber;
         document.getElementById(id).innerText = totalAmount;
       }
-    </script>
+
+   </script>
   </body>
 </html>
